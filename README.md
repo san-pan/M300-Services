@@ -27,6 +27,9 @@ Merkmale:
 #### Was ist Docker?
 Docker ist eine Freie Software zur Isolierung von Anwendungen mit Hilfe von Containervirtualisierung. Es vereinfacht die Bereitstellung von Anwendungen, weil sich Container, die alle nötigen Pakete enthalten, leicht als Dateien transportieren und installieren lassen.
 #### Auftrag
+Es wird ein Container mit einer laufenden Datenbank erstellt, welche durch eine Portweiterleitung von 3306 es möglich macht, vom Host auf den Client zuzugreifen.
+
+
 Installation des Images:
 ```
 docker pull mysql
@@ -57,7 +60,7 @@ docker ps -a
 ```
 Um den Container vollständig zu entfernen
 ```
-docker rm d99168928220
+docker rm [Container ID]
 ```
 Um den Container wieder zu erstellen kann man den "docker run..." Befehl wieder ausführen und der Container ist wieder erstellt werden.
 
@@ -69,7 +72,7 @@ ip a/ifconfig
 ```
 ip a
 ```
-Nachdem der Container läuft und funktioniert, kann man nun ein mysql-Client erstellen, mit dem man sich auf den Server verbinden kann.
+Nachdem der Container läuft und funktioniert, kann man nun ein mysql-Client installieren, mit dem man sich auf den Server verbinden kann:
 [Installationslink](https://www.dbvis.com/database/mysql/?gclid=Cj0KCQjw-daUBhCIARIsALbkjSbFZM1ORZVbrphTXrHz7n-8fBfk0KyUHg75zNLHglJFml5YKFVm0QsaAq0mEALw_wcB)
 
 Nach der Installation:
