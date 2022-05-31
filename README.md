@@ -25,9 +25,11 @@ Merkmale:
 
 ### 02-Docker
 #### Was ist Docker?
-
+Docker ist eine Freie Software zur Isolierung von Anwendungen mit Hilfe von Containervirtualisierung. Es vereinfacht die Bereitstellung von Anwendungen, weil sich Container, die alle nötigen Pakete enthalten, leicht als Dateien transportieren und installieren lassen.
 #### Auftrag
-
+```
+docker pull mysql
+```
 ## Reflexion
 Lernprozess festgehalten (Form frei wählbar)
 
