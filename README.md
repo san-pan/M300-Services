@@ -1,6 +1,6 @@
 # Einleitung allgemein 
 300 Plattformübergreifende Dienste in ein Netzwerk integrieren
-- Kompetenz
+- Kompetenz:
     Plattformübergreifende Dienste nach Vorgabe für eine heterogene Systemumgebung konfigurieren, in Betrieb nehmen, testen und freigeben
 
 # Inhaltsverszeichnis
