@@ -27,6 +27,9 @@ Merkmale:
 #### Was ist Docker?
 Docker ist eine Freie Software zur Isolierung von Anwendungen mit Hilfe von Containervirtualisierung. Es vereinfacht die Bereitstellung von Anwendungen, weil sich Container, die alle nötigen Pakete enthalten, leicht als Dateien transportieren und installieren lassen.
 #### Auftrag - Docker Images und Run
+
+[Docker Cheat Sheet](https://tbzedu.sharepoint.com/sites/campus/students/it/Forms/AllItems.aspx?id=%2Fsites%2Fcampus%2Fstudents%2Fit%2F%5Fread%2Donly%2FM300%2F2%2D%20Unterlagen%2FDocker%5Fcheat%2Dsheet%2Dv2%2Epdf&parent=%2Fsites%2Fcampus%2Fstudents%2Fit%2F%5Fread%2Donly%2FM300%2F2%2D%20Unterlagen&p=true&ga=1)
+
 Es wird ein Container mit einer laufenden Datenbank erstellt, welche durch eine Portweiterleitung von 3306 es möglich macht, vom Host auf den Client zuzugreifen.
 
 
