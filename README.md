@@ -145,6 +145,80 @@ docker exec -it [Container ID] /bin/bash
 ls -l /var/lib/mysql
 ```
 
+#### Docker build
+Es werden Docker-Images erstellt. Dabei gibt es zwei Varianten:
+1. wie man einen laufenden Container mit Modifikationen ein neues Image kann bauen, welches basierend auf dem laufenden Container ist.
+2. Ähnlich wie das Vagrant-File. Es wird ein Docker-File per Code definiert, was alles in dem Image vorhanden sein soll.
+
+**Erste Variante**
+Neuen Container erstellen:
+```
+docker run -it --name cowsay --hostname cowsay ubuntu bash
+```
+```
+exit
+```
+Auf der VM suchen, ob das Image vorhanden ist
+```
+docker image ls
+```
+Container starten
+```
+docker start cowsay
+```
+Auf den Container zugreifen und Updates durchführen. Danach das Programm "fortune" herunterladen
+```
+docker exec -it cowsay bash
+```
+```
+apt-get update
+```
+```
+apt-get install -y cowsay fortune
+```
+Testen, ob die Installation erfolgreich war
+```
+/usr/games/fortune oder /usr/games/fortune |/usr/games/cowsay
+```
+Container mit dem folgenden Image erstellen:
+```
+docker commit cowsay img/cowsay
+```
+Kontrollen, ob es erstellt wurde
+```
+docker history /img/cowsay
+```
+Neuen Container mit dem Image vom "Cowsay" Container erstellen
+```
+docker run -it --name newcowsay --hostname newcowsay img/cowsay
+```
+Wenn man nun den folgenden Befehl eingibt sieht man, dass das Image auf dem "Newcowsay" läuft
+```
+/usr/games/fortune |/usr/games/cowsay
+```
+
+**Zweite Variante**
+
+```
+docker image ls
+```
+
+```
+docker image ls
+```
+
+```
+docker image ls
+```
+
+```
+docker image ls
+```
+
+```
+docker image ls
+```
+
 ## Reflexion
 Lernprozess festgehalten (Form frei wählbar)
 
