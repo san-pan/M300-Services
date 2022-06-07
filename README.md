@@ -26,7 +26,7 @@ Merkmale:
 ### 02-Docker
 #### Was ist Docker?
 Docker ist eine Freie Software zur Isolierung von Anwendungen mit Hilfe von Containervirtualisierung. Es vereinfacht die Bereitstellung von Anwendungen, weil sich Container, die alle nötigen Pakete enthalten, leicht als Dateien transportieren und installieren lassen.
-#### Auftrag
+#### Auftrag - Docker Images und Run
 Es wird ein Container mit einer laufenden Datenbank erstellt, welche durch eine Portweiterleitung von 3306 es möglich macht, vom Host auf den Client zuzugreifen.
 
 
@@ -90,6 +90,58 @@ Zum Verlassen des Containers
 ```
 exit
 ```
+
+#### Auftrag - Docker Volumes
+Es konnte nun eine Datenbank vom Host mit dem Container verbunden werden, jedoch wenn man den Container löscht, geht diese ebenfalls verloren. Damit dies nicht passiert wird ein Volume im Container erstellt, welches alle Daten abspeichern kann. Dafür wird ein Volume auf der VM erstellt mit einem einzigartigem Namen und dies wir gemountet mit dem Verzeichnis /var/lib/mysql, welches auf dem Container abgelegt ist.
+
+Dafür wird zuerst der Container gelöscht, das Volume erstellt und der Container wieder aufgesetzt.
+```
+docker stop [Container ID]
+```
+```
+docker rm [Container ID]
+```
+Um alle volume-Befehle zu sehen:
+```
+docker volume
+```
+Alle Volumes, welche nicht gebraucht werden, können gelöscht werden:
+```
+docker volume prune
+```
+Um alle Volumes zu sehen:
+```
+docker volume ls
+```
+Volume erstellen:
+```
+docker volume create mydbstore
+```
+Pfad zum lokalen Speicherort sehen:
+```
+docker volume inspect mydbstore
+```
+Damit die Daten nun auf der VM abgespeichert werden und nicht mehr im Container wird der folgende run Befehl ergänzt. Der Teil "-v mydbstore:/var/lib/mysql" befiehlt dem Volume, dass es zum "var/lib/mysql" zeigen soll. Alles was dann dort abgespeichert wird, ist nicht mehr im Container sondern im Volume von der VM.
+```
+docker run --name mysql -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=Password123 -v mydbstore:/var/lib/mysql -p 3306:3306 -d mysql:latest
+```
+Es wird nun nochmals eine Datenbank erstellt, der Container gelöscht und und wieder erstellt. Die Datenbank ist wieder vorhanden, wie es vorher war.
+```
+docker stop [Container ID]
+```
+```
+docker rm [Container ID]
+```
+```
+docker run --name mysql -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=Password123 -v mydbstore:/var/lib/mysql -p 3306:3306 -d mysql:latest
+```
+```
+docker exec -it [Container ID] /bin/bash
+```
+```
+ls -l /var/lib/mysql
+```
+
 ## Reflexion
 Lernprozess festgehalten (Form frei wählbar)
 
